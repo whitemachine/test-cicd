@@ -12,7 +12,7 @@ pipeline {
             }
         }
         stage('Test') {
-            echo 'Test stage'
+            sh 'echo "Test stage"'
         }
         stage('Deliver') { 
             agent {
