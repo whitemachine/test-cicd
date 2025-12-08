@@ -18,8 +18,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'sudo pip install --user pytest'
-                sh 'pytest --verbose --junit-xml test-reports/results.xml sources/test_calc.py'
+                sh 'py.test --verbose --junit-xml test-reports/results.xml sources/test_calc.py'
             }
             post {
                 always {
