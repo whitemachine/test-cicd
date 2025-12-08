@@ -15,10 +15,12 @@ pipeline {
             agent {
                 docker {
                     image 'python:3-alpine'
+                    args '-u root'
                 }
             }
             steps {
-                sh 'py.test --verbose --junit-xml test-reports/results.xml sources/test_calc.py'
+                sh 'pip install --user pytest'
+                sh 'pytest --verbose --junit-xml test-reports/results.xml sources/test_calc.py'
             }
             post {
                 always {
